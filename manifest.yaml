@@ -1,11 +1,51 @@
 packages:
   # this is the package name
-  test-package:
+  prometeo-package:
     actions:
       # name of the action
-      test-action:
+      prometeo-mqtt-test:
         # source for the action; in this case it is a folder
         function: action
         runtime: nodejs:12
         # publish the action as a web action
-        web: yes
+        web: no
+        inputs:
+          IOT_HOST:
+            type: string
+            value: $IOT_HOST
+          IOT_PROTOCOL:
+            type: string
+            value: $IOT_PROTOCOL
+          IOT_USERNAME:
+            type: string
+            value: $IOT_USERNAME
+          IOT_PASSWORD:
+            type: string
+            value: $IOT_PASSWORD
+          IOT_SECURE_PORT:
+            type: string
+            value: $IOT_SECURE_PORT
+          IOT_PORT:
+            type: string
+            value: $IOT_PORT
+          IOT_CLIENTID:
+            type: string
+            value: $IOT_CLIENTID
+          IOT_PEM:
+            type: string
+            value: $IOT_PEM
+          IOT_FIREFIGHTER_ID:
+            type: string
+            value: $IOT_FIREFIGHTER_ID
+          IOT_DEVICE_ID:
+            type: string
+            value: $IOT_DEVICE_ID
+    triggers:
+      everyminute:
+        feed: /whisk.system/alarms/alarm
+        inputs:
+          cron: "*/3 * * * *"
+    rules:
+      prometeo-send-minute:
+        trigger: everyminute
+        action: prometeo-mqtt-test
