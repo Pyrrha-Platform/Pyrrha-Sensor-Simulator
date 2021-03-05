@@ -1,0 +1,25 @@
+{
+  "name": "openwhisk-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upkarlidder/openwhisk-hello-world.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upkarlidder/openwhisk-hello-world/issues"
+  },
+  "homepage": "https://github.com/upkarlidder/openwhisk-hello-world#readme",
+  "dependencies": {
+    "lorem-ipsum": "^2.0.3",
+    "pino": "^6.11.1"
+  }
+}

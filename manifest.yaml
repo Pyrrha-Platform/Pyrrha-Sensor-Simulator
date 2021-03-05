@@ -1,0 +1,11 @@
+packages:
+  # this is the package name
+  test-package:
+    actions:
+      # name of the action
+      test-action:
+        # source for the action; in this case it is a folder
+        function: action
+        runtime: nodejs:12
+        # publish the action as a web action
+        web: yes
