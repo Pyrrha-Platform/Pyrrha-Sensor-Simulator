@@ -1,7 +1,17 @@
+# System Files
+.DS_Store
+Thumbs.db
+.env-*
+*.zip
+*.pem
+dist
+dist-old
+history*.txt
+notes/
+env.json
+.env
 .vscode
 *secret*
-
-.env
 
 # Logs
 logs
