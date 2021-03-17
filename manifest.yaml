@@ -41,11 +41,11 @@ packages:
             type: string
             value: $IOT_DEVICE_ID
     triggers:
-      everyminute:
+      trigger_cron:
         feed: /whisk.system/alarms/alarm
         inputs:
           cron: "*/1 * * * *"
     rules:
-      prometeo-send-minute:
-        trigger: everyminute
+      rule_prometeo_repeat:
+        trigger: trigger_cron
         action: prometeo-mqtt-test
