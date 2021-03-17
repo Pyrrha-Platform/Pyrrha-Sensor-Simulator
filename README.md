@@ -9,7 +9,7 @@ This repository will contain the [Prometeo](https://github.com/Call-for-Code/Pro
 ```bash
 #!/bin/bash
 echo ">>> Downloading Whisk Deploy…"
-wget https://github.com/apache/incubator-openwhisk-wskdeploy/releases/download/latest/openwhisk_wskdeploy-latest-linux-amd64.tgz
+wget https://github.com/apache/openwhisk-wskdeploy/releases/download/latest/openwhisk_wskdeploy-latest-linux-amd64.tgz
 echo ">>> Installing Whisk Deploy…"
 mkdir openwhisk
 tar -zxvf ./openwhisk_wskdeploy-latest-linux-amd64.tgz -C ./openwhisk
