@@ -1,7 +1,6 @@
 const logger = require('pino')();
 const fs = require('fs');
 var mqtt = require('mqtt');
-require('dotenv').config({ path: '.env.client' });
 
 function main(params) {
     return new Promise((resolve, reject) => {
@@ -45,8 +44,7 @@ function main(params) {
                     logger.error(err);
                     reject({ err: err });
                 } else {
-                    logger.info(`\n\n\nfinished publishing data`);
-                    // console.log(`\n\n\nfinished publishing data: ${JSON.stringify(data)}`);
+                    logger.info(`\n\n\nfinished publishing data: ${JSON.stringify(data)}`);
                 }
 
                 client.end();
@@ -55,28 +53,34 @@ function main(params) {
 
         });
 
-        client.on('message', function (topic, message) {
-            logger.info('\n\n\n\n');
-            logger.info(message.toString())
-        })
+        client.on('message', onMessage)
 
-        client.on('close', function (err) {
-            if (err) { logger.info(err) };
-            logger.info('connection closed');
-        })
+        client.on('close', onClose)
 
-        client.on('disconnect', function (err) {
-            logger.info('connection disconnected');
-        })
+        client.on('disconnect', onDisconnect)
 
-
-        client.on('error', function (err) {
-            console.log(err);
-            logger.info('connection error');
-            logger.info(err);
-        })
+        client.on('error', onError)
 
     })
+}
+
+function onMessage(topic, message) {
+    logger.info('\n\n\n\n');
+    logger.info(message.toString())
+}
+
+function onClose(err) {
+    if (err) { logger.info(err) };
+    logger.info('connection closed');
+}
+
+function onDisconnect(err) {
+    logger.info('connection disconnected');
+}
+
+function onError(err) {
+    logger.error('connection error');
+    logger.error(err);
 }
 
 function getUTCTime() {

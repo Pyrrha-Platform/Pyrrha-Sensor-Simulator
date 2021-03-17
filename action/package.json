@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/upkarlidder/openwhisk-hello-world#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "lorem-ipsum": "^2.0.3",
+    "mqtt": "^4.2.6",
     "pino": "^6.11.1"
   }
 }

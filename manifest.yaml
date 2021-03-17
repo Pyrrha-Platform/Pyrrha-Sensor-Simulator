@@ -44,7 +44,7 @@ packages:
       everyminute:
         feed: /whisk.system/alarms/alarm
         inputs:
-          cron: "*/3 * * * *"
+          cron: "*/1 * * * *"
     rules:
       prometeo-send-minute:
         trigger: everyminute
