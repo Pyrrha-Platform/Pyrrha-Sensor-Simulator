@@ -1,35 +1,56 @@
 name: Build and deploy to IBM Cloud Functions
 
-on: workflow_dispatch
+# Execute on every push to main
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ul-wip 
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  IBM_CLOUD_REGION: us-south
-  IBM_CLOUD_GROUP: default
-  IBM_CLOUD_SPACE: dev
-  IBM_CLOUD_ORG:
-  MANIFEST_NAME: manifest.yml
+  IBM_CLOUD_REGION: ${{secrets.IBM_CLOUD_REGION}}
+  IBM_CLOUD_GROUP: ${{secrets.IBM_CLOUD_GROUP}}
+  IBM_CLOUD_SPACE: ${{secrets.IBM_CLOUD_SPACE}}
+  IBM_CLOUD_ORG: ${{secrets.IBM_CLOUD_ORG}}
   IBM_CLOUD_API: ${{secrets.IBM_CLOUD_API_KEY}}
 
-defaults:
-  run:
-    working-directory: server
-
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  package-deploy-fn:
+    name: Package and deploy an OpenWhisk action to IBM Cloud
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+      - name: populate manifest file
+        run: |
+          cat manifest.yaml | grep -i value: 
+          sed "s/\$IOT_HOST/${{secrets.IOT_HOST}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_PROTOCOL/${{secrets.IOT_PROTOCOL}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_USERNAME/${{secrets.IOT_USERNAME}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_SECURE_PORT/${{secrets.IOT_SECURE_PORT}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_PORT/${{secrets.IOT_PORT}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_CLIENTID/${{secrets.IOT_CLIENTID}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_PEM/${{secrets.IOT_PEM}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_FIREFIGHTER_ID/${{secrets.IOT_FIREFIGHTER_ID}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_DEVICE_ID/${{secrets.IOT_DEVICE_ID}}/" --in-place='' manifest.yaml
+          sed "s/\$IOT_PASSWORD/${{secrets.IOT_PASSWORD}}/" --in-place='' manifest.yaml
+      - name: create pem file
+        env:
+          IOT_PEM_CERT: ${{ secrets.IOT_PEM_CERT }}
+        run: |
+          echo "$IOT_PEM_CERT" >> ./action/messaging.pem
+          echo "running ls **"
+          ls -lta ./action
+          echo "finished running ls **"
       - name: Install IBM CLI
         run: |
           curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
           ibmcloud --version
           ibmcloud config --check-version=false
         shell: bash
-      - name: Install CF plugin
-        run: ibmcloud cf install -f
+      - name: Install fn plugin
+        run: ibmcloud plugin install cloud-functions
         shell: bash
       - name: Log into IBM Cloud
         run: |
@@ -38,9 +59,20 @@ jobs:
       - name: Target CF
         run: ibmcloud target --cf-api https://api.$IBM_CLOUD_REGION.cf.cloud.ibm.com -r $IBM_CLOUD_REGION -o $IBM_CLOUD_ORG -s $IBM_CLOUD_SPACE
         shell: bash
-      - name: List all applications
-        run: ibmcloud cf apps
+      - name: List all functions
+        run: ibmcloud fn list
         shell: bash
-      - name: Deploy manifest file
-        run: ibmcloud cf push -f ./$MANIFEST_NAME
+      - name: uninstall functions first
+        run: ibmcloud fn undeploy
+        shell: bash
+      - name: install package
+        run: npm install
+        shell: bash
+        working-directory: action
+      - name: Install actions
+        run: ibmcloud fn deploy
+        shell: bash
+        working-directory: .
+      - name: List all functions
+        run: ibmcloud fn list
         shell: bash
