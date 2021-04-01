@@ -1,0 +1,11 @@
+#!/bin/bash
+export IOT_HOST=""
+export IOT_PROTOCOL=""
+export IOT_USERNAME=""
+export IOT_PASSWORD=""
+export IOT_SECURE_PORT=""
+export IOT_PORT=""
+export IOT_CLIENTID=""
+export IOT_PEM=""
+export IOT_FIREFIGHTER_ID=""
+export IOT_DEVICE_ID=""
