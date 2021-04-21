@@ -15,6 +15,7 @@ env:
   IBM_CLOUD_ORG: ${{secrets.IBM_CLOUD_ORG}}
   IBM_CLOUD_API: ${{secrets.IBM_CLOUD_API_KEY}}
   IOT_HOST: ${{secrets.IOT_HOST}}
+  CRON: ${{secrets.CRON}}
 
 jobs:
   package-deploy-fn:

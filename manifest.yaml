@@ -44,7 +44,7 @@ packages:
       trigger_cron:
         feed: /whisk.system/alarms/alarm
         inputs:
-          cron: $CRON
+          cron: "*/1 * * * *"
     rules:
       rule_prometeo_repeat:
         trigger: trigger_cron
