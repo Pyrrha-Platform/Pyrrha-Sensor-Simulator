@@ -25,13 +25,8 @@ This simple OpenWhisk function creates a MQTT client for the Pyrrha solution. Th
 ```
 
 ### Add device to the IoT platform
-This solution was built for the [IBM IoT platform](https://cloud.ibm.com/catalog/services/internet-of-things-platform), but will publish events to any MQTT server. If using the IBM IoT platform, add a new device to the platform first.
+This solution was built for the [IBM IoT platform](https://cloud.ibm.com/catalog/services/internet-of-things-platform), but will publish events to any MQTT server. If using the IBM IoT platform, [add a new device](https://github.com/Pyrrha-Platform/Pyrrha/blob/main/WATSON_IoT_SETUP.md) to the platform first. 
 
-![](images/iot-1-add-device.png)
-
-Use `PyrrhaDevice` as the device type. 
-
-![](images/iot-2-devicetype.png)
 
 ### Edit configuration
 The following parameters need to be set as local environment variables or as Github Actions environment secrets for the code to work. You can fill out `.example.sh` and run `source ./.example.sh` to create the environment variables locally.
