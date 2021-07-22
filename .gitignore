@@ -1,3 +1,6 @@
+devices.*
+!devices.sample.json
+
 # System Files
 .DS_Store
 Thumbs.db
