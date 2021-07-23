@@ -2,13 +2,15 @@
 
 This repository will contain the [Pyrrha](https://github.com/Pyrrha-Platform/Pyrrha) solution sensor simulator.
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Slack&message=%23prometeo-pyrrha&color=blue)](https://callforcode.org/slack)
 
 ## Setting up the solution
 
 ### Code overview
+
 This simple OpenWhisk function creates a MQTT client for the Pyrrha solution. The client sends the following message as an IoT device to the IoT platform every minute:
-```
+
+```json
 {
     "firefighter_id": params.IOT_FIREFIGHTER_ID,
     "device_id": params.IOT_DEVICE_ID,
@@ -25,15 +27,17 @@ This simple OpenWhisk function creates a MQTT client for the Pyrrha solution. Th
 ```
 
 ### Add device to the IoT platform
+
 This solution was built for the [IBM IoT platform](https://cloud.ibm.com/catalog/services/internet-of-things-platform), but will publish events to any MQTT server. If using the IBM IoT platform, add a new device to the platform first.
 
 ![](images/iot-1-add-device.png)
 
-Use `PyrrhaDevice` as the device type. 
+Use `PyrrhaDevice` as the device type.
 
 ![](images/iot-2-devicetype.png)
 
 ### Edit configuration
+
 The following parameters need to be set as local environment variables or as Github Actions environment secrets for the code to work. You can fill out `.example.sh` and run `source ./.example.sh` to create the environment variables locally.
 
 ```
@@ -54,7 +58,9 @@ The `IOT_CLIENTID` needs to be of the format `d:orgId:deviceType:deviceId`. The 
 ## Deployment
 
 ### Run locally
+
 The action is a simple node.js application. Execute the following steps to run it locally:
+
 1. install the dependencies
    ```
    npm install
@@ -65,6 +71,7 @@ The action is a simple node.js application. Execute the following steps to run i
    ```
 
 ### Run on IBM Cloud
+
 1. install the dependencies
    ```
    npm install
@@ -73,6 +80,7 @@ The action is a simple node.js application. Execute the following steps to run i
    ```
    ibmcloud fn deploy
    ```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting Pyrrha pull requests.
