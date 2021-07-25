@@ -10,7 +10,7 @@ This repository will contain the [Pyrrha](https://github.com/Pyrrha-Platform/Pyr
 
 This simple OpenWhisk function creates a MQTT client for the Pyrrha solution. The client sends the following message as an IoT device to the IoT platform every minute:
 
-```json
+```
 {
     "firefighter_id": params.IOT_FIREFIGHTER_ID,
     "device_id": params.IOT_DEVICE_ID,
