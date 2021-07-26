@@ -1,0 +1,28 @@
+{
+    "devices": [
+        {
+            "IOT_CLIENTID": "d:orgid:device-type:device-id",
+            "IOT_PASSWORD":"",
+            "IOT_FIREFIGHTER_ID":"",
+            "IOT_DEVICE_ID": "device-id"
+        },
+        {
+            "IOT_CLIENTID": "",
+            "IOT_PASSWORD":"",
+            "IOT_FIREFIGHTER_ID":"",
+            "IOT_DEVICE_ID": ""
+        },
+        {
+            "IOT_CLIENTID": "",
+            "IOT_PASSWORD":"",
+            "IOT_FIREFIGHTER_ID":"",
+            "IOT_DEVICE_ID": ""
+        },
+        {
+            "IOT_CLIENTID": "",
+            "IOT_PASSWORD":"",
+            "IOT_FIREFIGHTER_ID":"",
+            "IOT_DEVICE_ID": ""
+        }
+    ]
+}
