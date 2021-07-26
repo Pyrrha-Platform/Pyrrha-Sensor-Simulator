@@ -1,8 +1,8 @@
 # Pyrrha sensor simulator
 
-This repository will contain the [Pyrrha](https://github.com/Pyrrha-Platform/Pyrrha) solution sensor simulator.
-
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/static/v1?label=Slack&message=%23prometeo-pyrrha&color=blue)](https://callforcode.org/slack)
+
+This repository will contain the [Pyrrha](https://github.com/Pyrrha-Platform/Pyrrha) solution sensor simulator.
 
 ## Setting up the solution
 
