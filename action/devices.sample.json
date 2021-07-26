@@ -1,9 +1,9 @@
 {
     "devices": [
         {
-            "IOT_CLIENTID": "d:ordid:device-type:device-id",
+            "IOT_CLIENTID": "d:orgid:device-type:device-id",
             "IOT_PASSWORD":"",
-            "IOT_FIREFIGHTER_ID":""
+            "IOT_FIREFIGHTER_ID":"",
             "IOT_DEVICE_ID": "device-id"
         },
         {

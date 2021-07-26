@@ -5,6 +5,7 @@ devices.*
 .DS_Store
 Thumbs.db
 .env-*
+.env.*
 *.zip
 *.pem
 dist
