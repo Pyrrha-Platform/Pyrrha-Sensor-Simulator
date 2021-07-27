@@ -4,25 +4,25 @@
             "IOT_CLIENTID": "d:orgid:device-type:device-id",
             "IOT_PASSWORD":"",
             "IOT_FIREFIGHTER_ID":"",
-            "IOT_DEVICE_ID": "device-id"
+            "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:01"
         },
         {
-            "IOT_CLIENTID": "",
+            "IOT_CLIENTID": "d:orgid:device-type:device-id",
             "IOT_PASSWORD":"",
             "IOT_FIREFIGHTER_ID":"",
-            "IOT_DEVICE_ID": ""
+            "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:02"
         },
         {
-            "IOT_CLIENTID": "",
+            "IOT_CLIENTID": "d:orgid:device-type:device-id",
             "IOT_PASSWORD":"",
             "IOT_FIREFIGHTER_ID":"",
-            "IOT_DEVICE_ID": ""
+            "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:03"
         },
         {
-            "IOT_CLIENTID": "",
+            "IOT_CLIENTID": "d:orgid:device-type:device-id",
             "IOT_PASSWORD":"",
             "IOT_FIREFIGHTER_ID":"",
-            "IOT_DEVICE_ID": ""
+            "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:04"
         }
     ]
 }
