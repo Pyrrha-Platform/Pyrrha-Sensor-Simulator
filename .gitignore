@@ -1,15 +1,21 @@
+devices.*
+!devices.sample.json
+
 # System Files
 .DS_Store
 Thumbs.db
 .env-*
+.env.*
+.env
+!.env.docker
+
+
 *.zip
 *.pem
 dist
 dist-old
 history*.txt
 notes/
-env.json
-.env
 .vscode
 *secret*
 

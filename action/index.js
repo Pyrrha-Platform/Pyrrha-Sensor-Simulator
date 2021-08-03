@@ -16,10 +16,15 @@ function main(params) {
             clientId: params.IOT_CLIENTID,
             cert: pemFile
         };
-
+        
         const client = mqtt.connect(options);
 
         client.on('connect', function (err) {
+
+            if(err){
+                console.log(`error connecting ${params.IOT_DEVICE_ID}`)
+                console.log(JSON.stringify(err));
+            }
             logger.info('connnected and ready to publish!');
             // publish(client, params);
 
