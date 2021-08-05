@@ -28,7 +28,7 @@ This Apache OpenWhisk serverless function creates a MQTT client for the Pyrrha s
 
 ### Add device to the IoT platform
 
-This solution was built for the [IBM IoT platform](https://cloud.ibm.com/catalog/services/internet-of-things-platform), but will publish events to any MQTT server. If using the IBM IoT platform, [add a new device](https://github.com/Pyrrha-Platform/Pyrrha/blob/main/WATSON_IoT_SETUP.md) to the platform first.
+This solution was built for the [IBM IoT platform](https://cloud.ibm.com/catalog/services/internet-of-things-platform), but will publish events to any MQTT server. If using the IBM IoT platform, [add a new device](https://github.com/Pyrrha-Platform/Pyrrha/blob/main/WATSON_IOT_SETUP.md) to the platform first.
 
 ### Edit configuration
 
