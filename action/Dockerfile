@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 COPY --chown=1001:0 . .
-RUN chmod -R g=u .
+# RUN chmod -R g=u .
 
 ARG ENV=production
 ENV NODE_ENV $ENV

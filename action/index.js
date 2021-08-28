@@ -19,10 +19,11 @@ function main(params) {
 
     const client = mqtt.connect(options);
 
-    client.on("connect", function (err) {
-      if (err) {
-        console.log(`error connecting ${params.IOT_DEVICE_ID}`);
-        console.log(JSON.stringify(err));
+    client.on("connect", function (packet) {
+      if (packet.returnCode != 0) {
+        logger.info(`error connecting ${params.IOT_DEVICE_ID}`);
+        logger.info(JSON.stringify(packet));
+        return;
       }
       logger.info("connnected and ready to publish!");
       // publish(client, params);
@@ -73,20 +74,25 @@ function onMessage(topic, message) {
   logger.info(message.toString());
 }
 
-function onClose(err) {
-  if (err) {
-    logger.info(err);
+function onClose(msg) {
+  if (msg) {
+    logger.info(msg);
   }
   logger.info("connection closed");
 }
 
 function onDisconnect(err) {
-  logger.info("connection disconnected");
+  logger.info(`connection disconnected: ${JSON.stringify(err)}`);
 }
 
 function onError(err) {
   logger.error("connection error");
   logger.error(err);
+}
+
+function reconnect(msg) {
+  logger.info("reconnect event");
+  logger.info(msg);
 }
 
 function getUTCTime() {
