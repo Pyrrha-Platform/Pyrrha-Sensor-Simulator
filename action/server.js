@@ -18,15 +18,15 @@ cron.schedule("* * * * *", () => {
   devices.forEach((device) => {
     let params = {
       IOT_HOST: process.env.IOT_HOST,
-      IOT_PEM: process.env.IOT_PEM,
       IOT_PROTOCOL: process.env.IOT_PROTOCOL,
-      IOT_USERNAME: process.env.IOT_USERNAME,
       IOT_SECURE_PORT: process.env.IOT_SECURE_PORT,
-      IOT_PASSWORD: device.IOT_PASSWORD,
-      IOT_CLIENTID: device.IOT_CLIENTID,
       IOT_FIREFIGHTER_ID: device.IOT_FIREFIGHTER_ID,
       IOT_DEVICE_ID: device.IOT_DEVICE_ID,
+      IOT_CLIENTID: device.IOT_CLIENTID,
+      IOT_USERNAME: process.env.IOT_USERNAME,
+      IOT_PASSWORD: device.IOT_PASSWORD,
     };
+    
     server
       .main(params)
       .then((result) => {

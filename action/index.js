@@ -4,26 +4,22 @@ var mqtt = require("mqtt");
 
 function main(params) {
   return new Promise((resolve, reject) => {
-    var pemFile = fs.readFileSync(params.IOT_PEM);
-    // the clientid format from the docs: d:orgId:deviceType:deviceId.
-    // const clientID = params.IOT_CLIENTID + `-${Date.now()}`;
     const options = {
       host: params.IOT_HOST,
       protocol: params.IOT_PROTOCOL,
-      username: params.IOT_USERNAME,
       port: params.IOT_SECURE_PORT,
-      password: params.IOT_PASSWORD,
       clientId: params.IOT_CLIENTID,
-      cert: pemFile,
+      username: params.IOT_DEVICE_ID,
+      password: params.IOT_PASSWORD,
     };
 
     const client = mqtt.connect(options);
 
-    client.on("connect", function (err) {
-      if (err) {
-        console.log(`error connecting ${params.IOT_DEVICE_ID}`);
-        console.log(JSON.stringify(err));
-      }
+    client.on("connect", function (packet) {
+      // if (err) {
+      //   console.log(`error connecting ${params.IOT_DEVICE_ID}`);
+      //   console.log(JSON.stringify(err));
+      // }
       logger.info("connnected and ready to publish!");
       // publish(client, params);
 
@@ -41,7 +37,8 @@ function main(params) {
         device_timestamp: getUTCTime(),
       };
 
-      const topic = `iot-2/evt/myevt/fmt/json`;
+      // const topic = `iot-2/evt/myevt/fmt/json`;
+      const topic = 'iot-2/evt/myevt';
 
       client.publish(topic, JSON.stringify(data), (err) => {
         if (err) {
