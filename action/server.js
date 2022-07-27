@@ -26,7 +26,7 @@ cron.schedule("* * * * *", () => {
       IOT_USERNAME: process.env.IOT_USERNAME,
       IOT_PASSWORD: device.IOT_PASSWORD,
     };
-    
+
     server
       .main(params)
       .then((result) => {

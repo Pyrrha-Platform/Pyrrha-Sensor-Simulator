@@ -38,7 +38,7 @@ function main(params) {
       };
 
       // const topic = `iot-2/evt/myevt/fmt/json`;
-      const topic = 'iot-2/evt/myevt';
+      const topic = "iot-2/evt/myevt";
 
       client.publish(topic, JSON.stringify(data), (err) => {
         if (err) {
