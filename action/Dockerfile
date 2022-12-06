@@ -1,4 +1,4 @@
-FROM docker.io/node:12-alpine
+FROM docker.io/node:16-alpine
 
 WORKDIR /user-app
 
@@ -8,6 +8,8 @@ RUN npm ci --only=production
 
 COPY --chown=1001:0 . .
 RUN chmod -R g=u .
+RUN mkdir /.npm
+RUN chown -R 1001:0 /.npm
 
 ARG ENV=production
 ENV NODE_ENV $ENV
