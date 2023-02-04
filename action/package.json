@@ -21,7 +21,7 @@
   "homepage": "https://github.com/upkarlidder/openwhisk-hello-world#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "mqtt": "^4.2.6",
+    "mqtt": "^4.3.7",
     "node-cron": "^3.0.0",
     "pino": "^6.11.1"
   },
