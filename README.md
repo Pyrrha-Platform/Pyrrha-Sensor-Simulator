@@ -10,7 +10,7 @@ This repository will contain the [Pyrrha](https://github.com/Pyrrha-Platform/Pyr
 
 This Apache OpenWhisk serverless function creates a MQTT client for the Pyrrha solution. The client sends the following message as an IoT device to the IoT platform every minute:
 
-```
+```json
 {
     "firefighter_id": params.IOT_FIREFIGHTER_ID,
     "device_id": params.IOT_DEVICE_ID,
@@ -36,7 +36,7 @@ Device information can be inserted directly into this table by first connecting 
 
 The following parameters need to be set as local environment variables or as Github Actions environment secrets for the code to work. You can fill out `.example.sh` and run `source ./.example.sh` to create the environment variables locally.
 
-```
+```sh
 IOT_HOST=""
 IOT_PROTOCOL=""
 IOT_SECURE_PORT=""
@@ -50,13 +50,13 @@ The action is a simple Node.js application. Execute the following steps to run i
 
 1. Install the dependencies
 
-   ```bash
+   ```sh
    npm install
    ```
 
-2. Run the code
+1. Run the code
 
-   ```bash
+   ```sh
    npm start
    ```
 
@@ -64,13 +64,13 @@ The action is a simple Node.js application. Execute the following steps to run i
 
 1. Install the dependencies
 
-   ```bash
+   ```sh
    npm install
    ```
 
-2. Deploy the code
+1. Deploy the code
 
-   ```bash
+   ```sh
    ibmcloud fn deploy
    ```
 

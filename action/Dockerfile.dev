@@ -12,7 +12,7 @@ RUN mkdir /.npm
 RUN chown -R 1001:0 /.npm
 
 ARG ENV=production
-ENV NODE_ENV $ENV
+ENV NODE_ENV=$ENV
 
 USER 1001
 CMD npm run $NODE_ENV
