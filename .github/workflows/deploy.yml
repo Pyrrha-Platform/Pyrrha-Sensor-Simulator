@@ -2,10 +2,10 @@ name: Build and deploy to IBM Cloud Functions
 
 # Execute on every push to main
 on:
+  release: # Execute when a release is created on the master branch
+    types:
+      - created
   workflow_dispatch:
-  push:
-    branches:
-      - ul-wip
 
 # Environment variables available to all jobs and steps in this workflow
 env:
