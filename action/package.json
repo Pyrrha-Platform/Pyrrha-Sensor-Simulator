@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "development": "nodemon server.js"
+    "development": "node_modules/.bin/nodemon server.js",
+    "production": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
     "dotenv": "^10.0.0",
     "mqtt": "^4.3.7",
     "node-cron": "^3.0.0",
+    "pino": "^6.11.1",
+    "nodemon": "^2.0.12"
     "pino": "^6.11.1"
   },
   "devDependencies": {
