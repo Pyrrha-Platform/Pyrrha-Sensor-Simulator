@@ -1,27 +1,27 @@
 {
   "devices": [
     {
-      "IOT_CLIENTID": "d:orgid:device-type:device-id",
-      "IOT_PASSWORD": "",
-      "IOT_FIREFIGHTER_ID": "",
+      "IOT_CLIENTID": "Prometeo:00:00:00:00:00:01",
+      "IOT_PASSWORD": "password",
+      "IOT_FIREFIGHTER_ID": "1",
       "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:01"
     },
     {
-      "IOT_CLIENTID": "d:orgid:device-type:device-id",
-      "IOT_PASSWORD": "",
-      "IOT_FIREFIGHTER_ID": "",
+      "IOT_CLIENTID": "Prometeo:00:00:00:00:00:02",
+      "IOT_PASSWORD": "password",
+      "IOT_FIREFIGHTER_ID": "2",
       "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:02"
     },
     {
-      "IOT_CLIENTID": "d:orgid:device-type:device-id",
-      "IOT_PASSWORD": "",
-      "IOT_FIREFIGHTER_ID": "",
+      "IOT_CLIENTID": "Prometeo:00:00:00:00:00:03",
+      "IOT_PASSWORD": "password",
+      "IOT_FIREFIGHTER_ID": "3",
       "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:03"
     },
     {
-      "IOT_CLIENTID": "d:orgid:device-type:device-id",
-      "IOT_PASSWORD": "",
-      "IOT_FIREFIGHTER_ID": "",
+      "IOT_CLIENTID": "Prometeo:00:00:00:00:00:04",
+      "IOT_PASSWORD": "password",
+      "IOT_FIREFIGHTER_ID": "4",
       "IOT_DEVICE_ID": "Prometeo:00:00:00:00:00:04"
     }
   ]
