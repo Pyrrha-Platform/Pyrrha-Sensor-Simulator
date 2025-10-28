@@ -88,12 +88,12 @@ function onError(err) {
 
 function getUTCTime() {
   var dateObj = new Date();
-  var month = dateObj.getUTCMonth() + 1; //months from 1-12
-  var day = dateObj.getUTCDate();
+  var month = String(dateObj.getUTCMonth() + 1).padStart(2, '0'); //months from 1-12
+  var day = String(dateObj.getUTCDate()).padStart(2, '0');
   var year = dateObj.getUTCFullYear();
-  var hours = dateObj.getUTCHours();
-  var minutes = dateObj.getUTCMinutes();
-  var seconds = dateObj.getUTCSeconds();
+  var hours = String(dateObj.getUTCHours()).padStart(2, '0');
+  var minutes = String(dateObj.getUTCMinutes()).padStart(2, '0');
+  var seconds = String(dateObj.getUTCSeconds()).padStart(2, '0');
 
   var newdate =
     year +
