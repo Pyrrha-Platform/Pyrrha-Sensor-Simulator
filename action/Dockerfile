@@ -1,4 +1,4 @@
-FROM docker.io/node:16-alpine
+FROM docker.io/node:20-alpine
 
 WORKDIR /user-app
 
